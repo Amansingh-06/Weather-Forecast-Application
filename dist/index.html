@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather-Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-slate-400 flex flex-col justify-center items-center sm:justify-center">
+    <h1 class="bg-blue-500 text-center pt-4 pb-4 text-2xl font-bold w-screen sm:w-screen ">Weather Dashboard</h1>
+    <div class=" p-8 gap-9 w-10/12 justify-center sm:flex-col md:flex md:flex-row sm:w-svw">
+        <div class=" bg-slate-500 p-4 flex flex-col">
+            <h3 class="font-semibold text-sm mb-3">Enter a city Name</h3>
+            <input type="text" id="inputbox" class="w-auto h-11 rounded-md p-4 ">
+            <button
+                class="bg-blue-500 mt-6 leading-10 text-white font-semibold rounded-md hover:bg-blue-950">Search</button>
+            <hr class="mt-4 mb-2 rounded-xl bg-slate-600">
+
+            <button class="bg-slate-700 mt-2 leading-10 text-white font-semibold rounded-md hover:bg-slate-900">Use
+                Current
+                Location</button>
+            <div class="mt-10 h-auto w-auto bg-slate-400">
+                <h1 class="font-bold">Recent:</h1>
+                <p>London</p>
+
+            </div>
+        </div>
+
+        <div class="w-auto ">
+            <div
+                class="bg-blue-500  justify-between text-white p-5 pr-20 sm:flex sm:flex-col md:flex md:flex-row  mt-10 md:mt-0 rounded-md ">
+                <div>
+                    <h2 class="text-3xl font-bold">London</h2>
+                    <h4 class="mt-3 text-xl ">Temperature:45</h4>
+                    <h4 class="mt-3 text-xl ">Wind:45Ms</h4>
+                    <h4 class="mt-3 text-xl ">Humidity:78%</h4>
+                </div>
+                <div class="h-40 ">
+                    <img src="https://openweathermap.org/img/wn/10d@4x.png" alt="Weather-Icon" class="max-w-28 mb-8">
+                    <H4 class="sm:mb-0 md:mb-5">Moderate rain</H4>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold mt-4 mb-4">5day-Forcast</h2>
+                <ul class="md:flex md:flex-wrap lg:flex-nowrap w-full sm:flex sm:flex-wrap gap-6">
+                    <li class="bg-slate-700 text-white p-4 list-none rounded-md lg:mb-0 mb-5 ">
+                        <h2 class="text-2xl font-semibold">(23-6-19)</h2>
+                        <img src="https://openweathermap.org/img/wn/10d@2x.png" class="w-20 ">
+                        <h4 class="text-sm ">Temperature:45</h4>
+                        <h4 class="mt-1 text-sm ">Wind:45Ms</h4>
+                        <h4 class="mt-1 text-sm">Humidity:78%</h4>
+                    </li>
+                    <li class="bg-slate-700 text-white p-4 list-none rounded-md  lg:mb-0 mb-5">
+                        <h2 class="text-2xl font-semibold">(23-6-19)</h2>
+                        <img src="https://openweathermap.org/img/wn/10d@2x.png" class="w-20 ">
+                        <h4 class="text-sm ">Temperature:45</h4>
+                        <h4 class="mt-1 text-sm ">Wind:45Ms</h4>
+                        <h4 class="mt-1 text-sm">Humidity:78%</h4>
+                    </li>
+                    <li class="bg-slate-700 text-white p-4 list-none rounded-md lg:mb-0 mb-5">
+                        <h2 class="text-2xl font-semibold">(23-6-19)</h2>
+                        <img src="https://openweathermap.org/img/wn/10d@2x.png" class="w-20 ">
+                        <h4 class="text-sm ">Temperature:45</h4>
+                        <h4 class="mt-1 text-sm ">Wind:45Ms</h4>
+                        <h4 class="mt-1 text-sm">Humidity:78%</h4>
+                    </li>
+                    <li class="bg-slate-700 text-white p-4 list-none rounded-md lg:mb-0 mb-5">
+                        <h2 class="text-2xl font-semibold">(23-6-19)</h2>
+                        <img src="https://openweathermap.org/img/wn/10d@2x.png" class="w-20 ">
+                        <h4 class="text-sm ">Temperature:45</h4>
+                        <h4 class="mt-1 text-sm ">Wind:45Ms</h4>
+                        <h4 class="mt-1 text-sm">Humidity:78%</h4>
+                    </li>
+                    <li class="bg-slate-700 text-white p-4 list-none rounded-md lg:mb-0 mb-5">
+                        <h2 class="text-2xl font-semibold">(23-6-19)</h2>
+                        <img src="https://openweathermap.org/img/wn/10d@2x.png" class="w-20 ">
+                        <h4 class="text-sm ">Temperature:45</h4>
+                        <h4 class="mt-1 text-sm ">Wind:45Ms</h4>
+                        <h4 class="mt-1 text-sm">Humidity:78%</h4>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
