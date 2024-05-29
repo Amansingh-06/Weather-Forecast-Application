@@ -626,6 +626,10 @@ video {
   display: flex;
 }
 
+.hidden {
+  display: none;
+}
+
 .h-11 {
   height: 2.75rem;
 }
@@ -704,6 +708,10 @@ video {
 
 .max-w-28 {
   max-width: 7rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .list-none {
@@ -786,6 +794,11 @@ video {
 .bg-slate-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .p-8 {
