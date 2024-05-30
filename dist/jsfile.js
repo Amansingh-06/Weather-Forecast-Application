@@ -1,12 +1,14 @@
-const main = document.getElementById("main")
-const searchBtn = document.getElementById("searchbtn");
-const currentBtn = document.getElementById("currentbtn");
-const inputBox = document.getElementById("inputbox");
-const weatherCard = document.getElementById("Weathercard");
-const recentContainer = document.getElementById("recent-container");
-const recentList = document.getElementById("recent-list");
-const API_key = "1c2fa74571cdbea91a79dd19cd703d41";
+// Declaring Global variable
+const main = document.getElementById("main") //main div
+const searchBtn = document.getElementById("searchbtn");// search button
+const currentBtn = document.getElementById("currentbtn");//location button
+const inputBox = document.getElementById("inputbox");//Input box
+const weatherCard = document.getElementById("Weathercard");//Weather main div
+const recentContainer = document.getElementById("recent-container");//Recent page div
+const recentList = document.getElementById("recent-list");//recent page list
 
+const API_key = "1c2fa74571cdbea91a79dd19cd703d41";//API key 
+// 5 days forecast container
 const createWeathercard = (weatheritem) => {
     return `<li class="bg-slate-700 text-white p-4 list-none rounded-md mb-3 sm:mb-3 lg:mb-3">
         <h2>(${weatheritem.dt_txt.split(" ")[0]})</h2>
@@ -16,15 +18,13 @@ const createWeathercard = (weatheritem) => {
         <h4>Humidity: ${weatheritem.main.humidity}%</h4>
     </li>`;
 }
-
+//Function for display weather in main container
 const displayWeather = (data, city) => {
     const weatherContainer = document.getElementById("currentweather");
-
     if (!weatherContainer) {
         console.error("Weather container not found");
         return;
     }
-
     const weatherCity = weatherContainer.querySelector("#weather-city");
     const weatherTemp = weatherContainer.querySelector("#weather-temp");
     const weatherWind = weatherContainer.querySelector("#weather-wind");
@@ -38,7 +38,7 @@ const displayWeather = (data, city) => {
     if (weatherHumidity) weatherHumidity.innerText = `Humidity: ${data.list[0].main.humidity}%`;
     if (weatherIcon) weatherIcon.src = `https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@4x.png`;
     if (weatherDescription) weatherDescription.innerText = data.list[0].weather[0].description;
-
+    //only for 5 days 
     const uniqueForecast = [];
     const fiveDaysForecast = data.list.filter(forecast => {
         const forecastDate = new Date(forecast.dt_txt).getDate();
@@ -53,13 +53,14 @@ const displayWeather = (data, city) => {
     fiveDaysForecast.forEach(weatheritem => {
         weatherCard.innerHTML += createWeathercard(weatheritem);
     });
-    hiddendiv();
+    hiddendiv();//For hidden div
 
 }
 const hiddendiv = () => {
     main.style.display = "block";
 }
 
+//Featchind weather data using API
 const getWeatherDetails = (city, lat, lon) => {
     const getWeather_API = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_key}&units=metric`;
     fetch(getWeather_API)
@@ -71,8 +72,9 @@ const getWeatherDetails = (city, lat, lon) => {
         });
 }
 
+// featching city coordinate to use display weather using city name
 const getCityCoordinates = () => {
-    const cityname = inputBox.value.trim();
+    const cityname = inputBox.value.trim(); //remove extra space
     if (!cityname) return alert("please Enter City Name");
     const geocoding_API = `https://api.openweathermap.org/geo/1.0/direct?q=${cityname}&limit=5&appid=${API_key}`;
     fetch(geocoding_API)
@@ -89,6 +91,7 @@ const getCityCoordinates = () => {
         });
 }
 
+//Function for Current location
 const getCurrentLocationWeather = () => {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
@@ -103,6 +106,7 @@ const getCurrentLocationWeather = () => {
     }
 }
 
+// Function For save recent city and adding in local storage
 const saveRecentCity = (city) => {
     let recentCities = JSON.parse(localStorage.getItem('recentCities')) || [];
     if (!recentCities.includes(city)) {
@@ -112,6 +116,7 @@ const saveRecentCity = (city) => {
     }
 }
 
+// display a recent city and fetching weather data using Recent city
 const displayRecentCities = () => {
     const recentCities = JSON.parse(localStorage.getItem('recentCities')) || [];
     recentList.innerHTML = '';
